@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Inspirational Quotes</title>
+        <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+    </head>
+    <body ng-controller="mainController">
+        <header>Quote.Love</header>
+        <div class="contribute">
+            <button class="add-a-quote" ng-click="addAQuote()">Add a Quote</button>
+            <button class="byRating" ng-click="byRating('rating')">Sort by Rating</button>
+        </div>
+        <div class="lightbox" ng-hide='showLightbox'>
+            <div class="content" >
+                <form>
+                  <textarea ng-model='newScript.quote' name="quote" class='quote-preview' placeholder='enter a quote'></textarea><br>
+                  <input ng-model='newScript.author' class='author-preview' type="text" placeholder="author's name">
+                  <p ng-model='newScript.rating'></p>
+
+                  <button class="add" ng-click="add()">Add</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <ul>
+                <li ng-repeat="script in javascripts">
+                    {{script.quote}}<br>
+                    <em>-{{script.author}}</em>
+                    <div>{{script.rating}}</div>
+                    <div class="rating">
+                         <select name="rating" ng-model='script.rating'>
+                                    <option value=""></option>
+                                    <option value="&#9733">&#9733</option>
+                                    <option value="&#9733&#9733">&#9733&#9733</option>
+                                    <option value="&#9733&#9733&#9733">&#9733&#9733&#9733</option>
+                                    <option value="&#9733&#9733&#9733&#9733">&#9733&#9733&#9733&#9733</option>
+                                    <option value="&#9733&#9733&#9733&#9733&#9733">&#9733&#9733&#9733&#9733&#9733</option>
+                                </select>
+                    </div>
+                   
+                </li>
+            </ul>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
+
